@@ -38,6 +38,7 @@
         "namedComponents": ["arrow-function", "function-declaration"]
       }
     ],
+    "react/forbid-prop-types": ["off"],
     "prettier/prettier": ["off"],
     "no-shadow": "off"
   }
