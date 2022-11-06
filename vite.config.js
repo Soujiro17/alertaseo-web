@@ -9,6 +9,10 @@ export default defineConfig({
     port: 3002
   },
 
+  test: {
+    environment: "happy-dom"
+  },
+
   build: {
     sourcemap: "hidden"
   }

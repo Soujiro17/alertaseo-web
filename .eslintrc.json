@@ -28,7 +28,8 @@
         "avoidEscape": true
       }
     ],
-    "react/jsx-uses-react": ["off"],
+    "react/jsx-uses-react": ["error"],
+    "react/jsx-uses-vars": ["error"],
     "react/react-in-jsx-scope": ["off"],
     "react/jsx-props-no-spreading": ["warn"],
     "react/function-component-definition": [
