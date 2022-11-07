@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Button from "../../shared/Button";
 import Input from "../../shared/Input";
-import { ForgetPassword, Form } from "./style";
+import Form from "./style";
 
 const LoginForm = () => {
   const {
@@ -23,7 +23,6 @@ const LoginForm = () => {
       <Input placeholder="Rut" type="text" width="300px" />
       <Input placeholder="Contraseña" type="password" width="300px" />
       <Button>Iniciar sesión</Button>
-      <ForgetPassword>Olvidaste tu contraseña</ForgetPassword>
     </Form>
   );
 };

@@ -1,16 +1,15 @@
-import Card from "../../components/Card";
 import LoginForm from "../../components/LoginForm";
-import Logo from "../../components/Logo";
-import Container from "./style";
+import HomeLayout from "../../layouts/HomeLayout";
+import ForgetPassword from "./style";
 
 const Login = () => {
   return (
-    <Container>
-      <Card>
-        <Logo />
-        <LoginForm />
-      </Card>
-    </Container>
+    <HomeLayout>
+      <LoginForm />
+      <ForgetPassword to="/recuperar-contrasena">
+        Olvidaste tu contraseña
+      </ForgetPassword>
+    </HomeLayout>
   );
 };
 

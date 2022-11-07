@@ -16,10 +16,12 @@ const Card = styled.div`
   background-color: ${colors.white[0]};
   max-width: ${(props) => props.maxWidth};
   max-height: ${(props) => props.maxHeight};
-  box-shadow: 1px 1px 5px 2px ${colors.black[1]};
+  box-shadow: ${(props) =>
+    props.disableBoxShadow ? "" : `1px 1px 5px 2px ${colors.black[1]}`};
   border-radius: 0.7rem;
   padding: 1rem;
-  position: relative;
+  position: ${(props) => (props.absolute ? "absolute" : "relative")};
+  z-index: 10;
 `;
 
 export default Card;

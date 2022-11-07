@@ -1,14 +1,19 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
-const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${colors.universidad.primary};
+const ForgetPassword = styled(Link)`
+  display: block;
+  width: 100%;
+  margin: 0%;
+  text-align: right;
+  text-decoration: none;
+  color: ${colors.black[5]};
+  transition: 0.2s all;
+
+  &:hover {
+    color: ${colors.universidad.primary};
+  }
 `;
 
-export default Container;
+export default ForgetPassword;

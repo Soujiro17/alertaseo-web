@@ -38,7 +38,7 @@ export const NavLink = styled(NL)`
   ${onHoverPrimary}
 
   &.active {
-    background-color: ${colors.universidad.white};
+    background-color: ${colors.black[1]};
     color: ${colors.universidad.primary};
   }
 `;

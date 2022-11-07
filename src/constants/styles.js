@@ -6,7 +6,6 @@ export const buttonInput = css`
   width: ${(props) => props.width};
   border-radius: 0.3rem;
   border: 1px solid ${colors.black[4]};
-  padding-left: 0.3rem;
 `
 
 export const onHoverPrimary = css`
@@ -21,7 +20,7 @@ export const onHoverPrimary = css`
     content: "";
     z-index: -1;
     transition: 0.2s all;
-    background-color: ${colors.universidad.white};
+    background-color: ${colors.black[1]};
   }
 
   &:hover {
