@@ -15,7 +15,11 @@ const Logo = ({ height, width, redirect, white }) => {
   );
 
   if (redirect) {
-    return <Link to="/">{logo}</Link>;
+    return (
+      <Link to="/" style={{ display: "block", height, width }}>
+        {logo}
+      </Link>
+    );
   }
 
   return logo;

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
-export const Container = styled.main`
+const Container = styled.main`
   height: 80vh;
   padding: 4%;
 `;
