@@ -1,7 +1,9 @@
 import React from "react";
+import { _ } from "gridjs-react";
 import Table from "../../components/Table";
 import columnas from "../../data/tableHeaders";
 import AccountLayout from "../../layouts/AccountLayout";
+import Acciones from "../../components/Acciones";
 
 const datos = [
   {
@@ -12,6 +14,7 @@ const datos = [
     reportadoPor: "Vicente Reyes",
     fecha: "06-11-2022",
     activo: "No",
+    accion: _(<Acciones id="2" />),
   },
   {
     id: 1,

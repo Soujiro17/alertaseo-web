@@ -7,12 +7,12 @@ import Logo from "../components/Logo";
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  overflow-x: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 
   &::before {
     position: absolute;
@@ -25,7 +25,8 @@ const Container = styled.div`
     background-image: url("/login-background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(2px) brightness(50%);
+    filter: blur(5px) brightness(50%);
+    scale: 1.1;
   }
 `;
 
@@ -33,7 +34,7 @@ const HomeLayout = ({ children }) => {
   return (
     <Container>
       <Card disableBoxShadow>
-        <Logo />
+        <Logo redirect />
         {children}
       </Card>
     </Container>
