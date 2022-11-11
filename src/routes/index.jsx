@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
+import { createBrowserRouter } from "react-router-dom";
 import ForgetPassword from "../pages/ForgetPassword";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
@@ -7,27 +7,43 @@ import NotFound from "../pages/NotFound";
 import Rutas from "../pages/Rutas";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
-// const Mapa = React.lazy(() => import("../pages/Mapa"));
 
-const PageRoutes = () => {
-  return (
-    <BrowserRouter>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/rutas" element={<Rutas />} />
-          <Route path="/registros" element={<Registros />}>
-            <Route path="edit" element={<p>Edit</p>} />
-            <Route path="agregar" element={<p>Agregar</p>} />
-          </Route>
-          <Route path="/recuperar-contrasena" element={<ForgetPassword />} />
-          {/* <Route path="/mapa" element={<Mapa />} /> */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
-  );
-};
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/rutas",
+    element: <Rutas />,
+  },
+  {
+    path: "/registros",
+    element: <Registros />,
 
-export default PageRoutes;
+    children: [
+      {
+        path: "edit",
+        element: <p>Edit</p>,
+      },
+      {
+        path: "agregar",
+        element: <p>Edit</p>,
+      },
+    ],
+  },
+  {
+    path: "/recuperar-contrasena",
+    element: <ForgetPassword />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
+
+export default routes;

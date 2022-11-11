@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Routes from "./routes";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
+import routes from "./routes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Routes />
+    <RouterProvider router={routes} fallbackElement={<p>Loading...</p>} />
   </React.StrictMode>,
 );
