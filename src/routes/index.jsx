@@ -4,7 +4,7 @@ import ForgetPassword from "../pages/ForgetPassword";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
-import Registro from "../pages/Registro";
+import Rutas from "../pages/Rutas";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
 // const Mapa = React.lazy(() => import("../pages/Mapa"));
@@ -16,8 +16,8 @@ const PageRoutes = () => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/registros" element={<Registros />} />
-          <Route path="/registro" element={<Registro />}>
+          <Route path="/rutas" element={<Rutas />} />
+          <Route path="/registros" element={<Registros />}>
             <Route path="edit" element={<p>Edit</p>} />
             <Route path="agregar" element={<p>Agregar</p>} />
           </Route>

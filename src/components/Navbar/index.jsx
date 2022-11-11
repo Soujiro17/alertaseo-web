@@ -20,6 +20,11 @@ const Navbar = () => {
             Mapa
           </NavLink>
         </NavItem>
+        <NavItem>
+          <NavLink to="/rutas" end>
+            Rutas
+          </NavLink>
+        </NavItem>
       </NavList>
     </Nav>
   );

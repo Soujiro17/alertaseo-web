@@ -19,9 +19,6 @@ const columnas = [
   },
   {
     name: "Activo",
-  },
-  {
-    name: "Accion"
   }
 ];
 

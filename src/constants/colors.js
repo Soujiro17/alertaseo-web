@@ -24,6 +24,9 @@ const colors = {
         "#0d0d0d"
     ],
 
+    red: "#c52424",
+    green: "#2eb835",
+
     universidad: {
         primary: "#003C58",
         accent: "#EEF1F2",

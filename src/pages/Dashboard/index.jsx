@@ -1,14 +1,16 @@
 import React from "react";
 import AccountLayout from "../../layouts/AccountLayout";
-import { Container, Descripcion, Title } from "./style";
+import { CardImg, Container, Descripcion, Title } from "./style";
 import Card from "../../components/Card";
+import images from "../../data/images";
 
 const Dashboard = () => {
   return (
     <AccountLayout>
       <Container>
-        <Card disableFlex height="100%" width="100%">
+        <Card activeHover disableFlex height="100%" width="100%">
           <Title>Introducción</Title>
+          <CardImg src={images.dashboardIntroduccion} alt="introduccion" />
           <Descripcion>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, vero
             saepe unde ad ipsam iste inventore natus incidunt atque recusandae
@@ -16,8 +18,9 @@ const Dashboard = () => {
             architecto perferendis?
           </Descripcion>
         </Card>
-        <Card disableFlex height="100%" width="100%">
+        <Card activeHover disableFlex height="100%" width="100%">
           <Title>Registros</Title>
+          <CardImg src={images.dashboardRegistros} alt="introduccion" />
           <Descripcion>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, vero
             saepe unde ad ipsam iste inventore natus incidunt atque recusandae
@@ -25,8 +28,9 @@ const Dashboard = () => {
             architecto perferendis?
           </Descripcion>
         </Card>
-        <Card disableFlex height="100%" width="100%">
-          <Title>Introducción</Title>
+        <Card activeHover disableFlex height="100%" width="100%">
+          <Title>Rutas</Title>
+          <CardImg src={images.dashboardRutas} alt="introduccion" />
           <Descripcion>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, vero
             saepe unde ad ipsam iste inventore natus incidunt atque recusandae
@@ -35,7 +39,6 @@ const Dashboard = () => {
           </Descripcion>
         </Card>
       </Container>
-      {/* <Title>Bienvenido a AlertAseo</Title> */}
     </AccountLayout>
   );
 };

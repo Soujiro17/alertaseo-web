@@ -22,6 +22,16 @@ const Card = styled.div`
   padding: 1rem;
   position: ${(props) => (props.absolute ? "absolute" : "relative")};
   z-index: 10;
+
+  ${(props) =>
+    props.activeHover
+      ? `
+    transition: .2s all;
+    &:hover {
+      transform: translateY(-.3rem);
+    }
+  `
+      : ""}
 `;
 
 export default Card;

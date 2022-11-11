@@ -4,11 +4,15 @@ import Accion from "../Accion";
 import CirculosContainer from "./style";
 
 const Acciones = ({ id }) => {
+  const onDelete = () => {};
+  const onGo = () => {};
+  const onEdit = () => {};
+
   return (
     <CirculosContainer>
-      <Accion delete />
-      <Accion edit="/registro/edit/1987" />
-      <Accion go="/registro" />
+      <Accion onDelete={onDelete} />
+      <Accion onGo={onGo} />
+      <Accion onEdit={onEdit} />
     </CirculosContainer>
   );
 };

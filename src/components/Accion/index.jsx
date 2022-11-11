@@ -1,28 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Circulo from "./style";
 
-const Accion = ({ delete: del, edit, go }) => {
-  if (del) return <Circulo className="delete" />;
+const Accion = ({ onEdit, onGo, onDelete }) => {
+  let className;
 
-  return (
-    <Link to={edit || go || "/"}>
-      <Circulo className={edit ? "edit" : "go"} />
-    </Link>
-  );
+  if (onEdit) {
+    className = "edit";
+  } else if (onGo) className = "go";
+  else if (onDelete) className = "delete";
+
+  return <Circulo onClick={onEdit || onGo || onDelete} className={className} />;
 };
 
 Accion.defaultProps = {
-  delete: false,
-  edit: "",
-  go: "",
+  onEdit: null,
+  onGo: null,
+  onDelete: null,
 };
 
 Accion.propTypes = {
-  delete: PropTypes.bool,
-  edit: PropTypes.string,
-  go: PropTypes.string,
+  onEdit: PropTypes.func,
+  onGo: PropTypes.func,
+  onDelete: PropTypes.func,
 };
 
 export default Accion;
