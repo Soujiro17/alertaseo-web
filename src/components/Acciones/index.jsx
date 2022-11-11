@@ -10,10 +10,10 @@ const Acciones = ({ id, navigate }) => {
     if (!window.confirm("Deseas eliminar este registro?")) return;
   };
   const onGo = () => {
-    navigate(`/registros/${id}`);
+    navigate(`/registro/${id}`);
   };
   const onEdit = () => {
-    navigate(`/registros/edit/${id}`);
+    navigate("/registro/edit");
   };
 
   return (

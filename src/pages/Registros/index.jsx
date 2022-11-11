@@ -1,5 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import Table from "../../components/Table";
 import columnas from "../../data/tableHeaders";
 import AccountLayout from "../../layouts/AccountLayout";
@@ -29,7 +28,6 @@ const Registros = () => {
   return (
     <AccountLayout>
       <Table data={datos} columns={columnas} />
-      <Outlet />
     </AccountLayout>
   );
 };
