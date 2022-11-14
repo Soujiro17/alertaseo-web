@@ -1,13 +1,19 @@
 import React from "react";
 import Header from "../../components/Header";
-import Container from "./style";
+import { Container, NotFoundImage, NotFoundText } from "./style";
 
 const NotFound = () => {
   return (
     <>
       <Header />
       <Container>
-        <p>Página no encontrada</p>
+        <NotFoundImage
+          src="/icons/emoji-dizzy.svg"
+          alt="not-found"
+          height="200px"
+          width="200px"
+        />
+        <NotFoundText>Página no encontrada</NotFoundText>
       </Container>
     </>
   );

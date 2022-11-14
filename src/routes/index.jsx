@@ -1,61 +1,35 @@
 import React, { Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ForgetPassword from "../pages/ForgetPassword";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Rutas from "../pages/Rutas";
 import Registro from "../pages/Registro";
+import RegistroEdit from "../components/RegistroEdit";
+import RegistroView from "../components/RegistroView";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
 
-const routes = createBrowserRouter([
-  {
-    path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
-    path: "/rutas",
-    element: <Rutas />,
-  },
-  {
-    path: "/registro",
-    element: <Registro />,
-    children: [
-      {
-        path: ":id",
-        element: <p>Registro</p>,
-      },
-      {
-        path: "edit",
-        element: <p>Edit</p>,
-      },
-    ],
-  },
-  {
-    path: "/registros",
-    element: (
+const PageRoutes = () => {
+  return (
+    <BrowserRouter>
       <Suspense fallback={<p>Loading...</p>}>
-        <Registros />
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/rutas" element={<Rutas />} />
+          <Route path="/registros" element={<Registros />} />
+          <Route path="/recuperar-contrasena" element={<ForgetPassword />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/registro" element={<Registro />}>
+            <Route path="edit" element={<RegistroEdit />} />
+            <Route path="view" element={<RegistroView />} />
+          </Route>
+        </Routes>
       </Suspense>
-    ),
-  },
-  {
-    path: "/recuperar-contrasena",
-    element: <ForgetPassword />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-]);
-
-const Router = () => {
-  return <RouterProvider router={routes} fallbackElement={<p>Loading...</p>} />;
+    </BrowserRouter>
+  );
 };
 
-export default Router;
+export default PageRoutes;

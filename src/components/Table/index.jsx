@@ -14,7 +14,7 @@ const Table = ({ data, columns, disableSearch, pagination }) => {
   const definitiveData = Object.entries(data)?.map(([, value]) => {
     return {
       ...value,
-      accion: _(<Acciones id={value.id.toString()} navigate={navigate} />),
+      accion: _(<Acciones value={value} navigate={navigate} />),
     };
   });
 

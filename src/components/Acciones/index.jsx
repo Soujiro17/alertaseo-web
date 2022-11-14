@@ -5,15 +5,15 @@ import PropTypes from "prop-types";
 import Accion from "../Accion";
 import CirculosContainer from "./style";
 
-const Acciones = ({ id, navigate }) => {
+const Acciones = ({ navigate, value }) => {
   const onDelete = () => {
     if (!window.confirm("Deseas eliminar este registro?")) return;
   };
   const onGo = () => {
-    navigate(`/registro/${id}`);
+    navigate("/registro/view", { state: { value } });
   };
   const onEdit = () => {
-    navigate("/registro/edit");
+    navigate("/registro/edit", { state: { value } });
   };
 
   return (
@@ -26,8 +26,8 @@ const Acciones = ({ id, navigate }) => {
 };
 
 Acciones.propTypes = {
-  id: PropTypes.string.isRequired,
   navigate: PropTypes.any.isRequired,
+  value: PropTypes.object.isRequired,
 };
 
 export default Acciones;
