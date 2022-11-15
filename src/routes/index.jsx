@@ -1,5 +1,12 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import ForgetPassword from "../pages/ForgetPassword";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
@@ -8,16 +15,29 @@ import Rutas from "../pages/Rutas";
 import Registro from "../pages/Registro";
 import RegistroEdit from "../components/RegistroEdit";
 import RegistroView from "../components/RegistroView";
+import { getLoggedIn } from "../app/apis/Users";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
 
 const PageRoutes = () => {
+  const axiosPrivate = useAxiosPrivate();
+
+  useQuery(["auth"], () => getLoggedIn({ axiosPrivate }));
+
   return (
     <BrowserRouter>
       <Suspense fallback={<p>Loading...</p>}>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
           <Route path="/rutas" element={<Rutas />} />
           <Route path="/registros" element={<Registros />} />
           <Route path="/recuperar-contrasena" element={<ForgetPassword />} />
@@ -30,6 +50,22 @@ const PageRoutes = () => {
       </Suspense>
     </BrowserRouter>
   );
+};
+
+const PrivateRoute = (children) => {
+  const queryClient = useQueryClient();
+
+  const data = queryClient.getQueryData(["auth"]);
+
+  console.log(data);
+
+  const location = useLocation();
+
+  if (!data) {
+    return <Navigate to="/" state={{ from: location }} replace />;
+  }
+
+  return children;
 };
 
 export default PageRoutes;

@@ -1,7 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "preact/hooks";
 import React from "react";
-import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logIn } from "../../app/apis/Users";
@@ -20,7 +18,9 @@ const LoginForm = () => {
   } = useFormHook(loginSchema, loginDefaultValues);
 
   const navigate = useNavigate();
-  const { mutate, isLoading } = useMutation(logIn);
+  const { mutate, isLoading } = useMutation({
+    mutationFn: (data) => logIn({ ...data }),
+  });
 
   const onSubmit = (data) => {
     mutate(data, {
