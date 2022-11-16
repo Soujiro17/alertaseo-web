@@ -9,6 +9,8 @@ import Input from "../../shared/Input";
 import Form from "./style";
 import { loginSchema } from "../../constants/schemas";
 import { loginDefaultValues } from "../../constants/defaultValues";
+import useAuth from "../../hooks/useAuth";
+import Spinner from "../Spinner";
 
 const LoginForm = () => {
   const {
@@ -17,19 +19,25 @@ const LoginForm = () => {
     formState: { errors },
   } = useFormHook(loginSchema, loginDefaultValues);
 
+  const { setAuth } = useAuth();
+
   const navigate = useNavigate();
+
   const { mutate, isLoading } = useMutation({
     mutationFn: (data) => logIn({ ...data }),
   });
 
   const onSubmit = (data) => {
     mutate(data, {
-      onSuccess: () => navigate("/dashboard"),
+      onSuccess: (res) => {
+        setAuth({ ...res.user, token: res.token });
+        navigate("/dashboard");
+      },
       onError: (data) => toast.error(`Error: ${data.response.data?.message}`),
     });
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spinner />;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

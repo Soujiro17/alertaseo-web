@@ -17,14 +17,11 @@ import RegistroEdit from "../components/RegistroEdit";
 import RegistroView from "../components/RegistroView";
 import { getLoggedIn } from "../app/apis/Users";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import useAuth from "../hooks/useAuth";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
 
 const PageRoutes = () => {
-  const axiosPrivate = useAxiosPrivate();
-
-  useQuery(["auth"], () => getLoggedIn({ axiosPrivate }));
-
   return (
     <BrowserRouter>
       <Suspense fallback={<p>Loading...</p>}>
@@ -52,16 +49,12 @@ const PageRoutes = () => {
   );
 };
 
-const PrivateRoute = (children) => {
-  const queryClient = useQueryClient();
-
-  const data = queryClient.getQueryData(["auth"]);
-
-  console.log(data);
+const PrivateRoute = ({ children }) => {
+  const { auth } = useAuth();
 
   const location = useLocation();
 
-  if (!data) {
+  if (!auth?.token) {
     return <Navigate to="/" state={{ from: location }} replace />;
   }
 
