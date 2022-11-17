@@ -12,7 +12,7 @@ const ForgetPassword = styled(Link)`
   transition: 0.2s all;
 
   &:hover {
-    color: ${colors.universidad.primary};
+    color: ${colors.primary};
   }
 `;
 

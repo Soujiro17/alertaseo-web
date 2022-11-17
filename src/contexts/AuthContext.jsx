@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   );
 
   const { isLoading } = useGetUser({
-    retry: 3,
+    retry: false,
     onSuccess: (res) => {
       setAuth({ ...res.user, token: res.token });
     },

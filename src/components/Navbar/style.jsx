@@ -5,12 +5,11 @@ import { onHoverPrimary } from "../../constants/styles";
 
 export const Nav = styled.nav`
   height: 8vh;
-  background-color: ${colors.black[2]};
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${colors.universidad.primary};
+  background-color: ${colors.primary};
 `;
 
 export const NavList = styled.ul`
@@ -31,14 +30,14 @@ export const NavLink = styled(NL)`
   justify-content: center;
   height: 100%;
   width: 100%;
-  color: ${colors.universidad.white};
-  background-color: ${colors.universidad.primary};
+  color: ${colors.white[0]};
+  background-color: ${colors.primary};
   text-decoration: none;
 
   ${onHoverPrimary}
 
   &.active {
     background-color: ${colors.black[1]};
-    color: ${colors.universidad.primary};
+    color: ${colors.black[9]};
   }
 `;

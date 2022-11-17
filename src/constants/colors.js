@@ -24,6 +24,9 @@ const colors = {
         "#0d0d0d"
     ],
 
+    primary: "#701C75",
+    accent: "#2DA9A3",
+
     red: "#c52424",
     green: "#2eb835",
 
