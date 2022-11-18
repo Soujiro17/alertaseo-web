@@ -1,30 +1,42 @@
 import React from "react";
+import PropTypes from "prop-types";
+import useAuth from "../../hooks/useAuth";
 import { Nav, NavItem, NavList, NavLink } from "./style";
 
+const NavbarItem = ({ to, children, onClick }) => {
+  return (
+    <NavItem onClick={onClick}>
+      <NavLink to={to} end>
+        {children}
+      </NavLink>
+    </NavItem>
+  );
+};
+
+NavbarItem.defaultProps = {
+  onClick: () => {},
+};
+
+NavbarItem.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+};
+
 const Navbar = () => {
+  const { cerrarSesion } = useAuth();
+
   return (
     <Nav>
       <NavList>
-        <NavItem>
-          <NavLink to="/dashboard" end>
-            Inicio
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/registros" end>
-            Registros
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/mapa" end>
-            Mapa
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/rutas" end>
-            Rutas
-          </NavLink>
-        </NavItem>
+        <NavbarItem to="/dashboard">Inicio</NavbarItem>
+        <NavbarItem to="/registros">Registros</NavbarItem>
+        <NavbarItem to="/mapa">Mapa</NavbarItem>
+        <NavbarItem to="/rutas">Rutas</NavbarItem>
+        <NavbarItem to="/camiones">Camiones</NavbarItem>
+        <NavbarItem to="/" onClick={cerrarSesion}>
+          Cerrar sesión
+        </NavbarItem>
       </NavList>
     </Nav>
   );
