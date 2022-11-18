@@ -2,15 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import L from "leaflet";
 import { Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 import { MapContainer } from "./style";
 import images from "../../data/images";
 
-const MapaLeaftlet = ({ height, width, punto, basurales }) => {
+const MapaLeaftlet = ({
+  height,
+  width,
+  punto,
+  basurales,
+  camiones,
+  children,
+}) => {
   const createIcon = ({ icon, className }) => {
     return L.icon({
       iconUrl: icon,
       iconSize: [35, 35],
-      className,
+      className: `icon ${className}`,
     });
   };
 
@@ -57,6 +65,18 @@ const MapaLeaftlet = ({ height, width, punto, basurales }) => {
           </Marker>
         );
       })}
+      {camiones?.map((camion) => {
+        const icon = createIcon({
+          icon: images.camionIcon,
+          className: "icon --camion",
+        });
+        return (
+          <Marker icon={icon} position={camion.coordenadas} key={camion.nombre}>
+            <Popup>{camion.nombre}</Popup>
+          </Marker>
+        );
+      })}
+      {children}
     </MapContainer>
   );
 };
@@ -65,6 +85,8 @@ MapaLeaftlet.defaultProps = {
   width: "",
   punto: null,
   basurales: [],
+  camiones: [],
+  children: <p>children</p>,
 };
 
 MapaLeaftlet.propTypes = {
@@ -72,6 +94,8 @@ MapaLeaftlet.propTypes = {
   width: PropTypes.string,
   punto: PropTypes.object,
   basurales: PropTypes.array,
+  camiones: PropTypes.array,
+  children: PropTypes.node,
 };
 
 export default MapaLeaftlet;

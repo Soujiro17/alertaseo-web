@@ -4,7 +4,8 @@ const images = {
     dashboardIntroduccion: "/introduccion.png",
     dashboardRegistros: "/registros.png",
     dashboardRutas: "/rutas.png",
-    basuralIcon: "/basural.jpg"
+    basuralIcon: "/basural.jpg",
+    camionIcon: "/camion.png"
 }
 
 export default images

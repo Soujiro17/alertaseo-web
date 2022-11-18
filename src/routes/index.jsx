@@ -18,6 +18,7 @@ import RegistroEdit from "../components/RegistroEdit";
 import RegistroView from "../components/RegistroView";
 import useAuth from "../hooks/useAuth";
 import Spinner from "../components/Spinner";
+import Camiones from "../pages/Camiones";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
 
@@ -36,6 +37,7 @@ const PageRoutes = () => {
             }
           />
           <Route path="/rutas" element={<Rutas />} />
+          <Route path="/camiones" element={<Camiones />} />
           <Route path="/mapa" element={<Mapa />} />
           <Route path="/registros" element={<Registros />} />
           <Route path="/recuperar-contrasena" element={<ForgetPassword />} />

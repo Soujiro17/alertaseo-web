@@ -13,7 +13,7 @@ const RegistroEdit = () => {
     <Container>
       <EditForm>
         <Card width="100%" height="100%">
-          <MapaLeaftlet height="200px" width="100%" />
+          <MapaLeaftlet punto={value} height="200px" width="100%" />
           <Label htmlFor="direccion">Dirección</Label>
           <Input id="direccion" value={value.direccion} width="100%" />
           <Label htmlFor="reportadoPor">Reportado por</Label>
