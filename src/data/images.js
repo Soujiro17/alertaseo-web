@@ -1,6 +1,6 @@
 const images = {
-    logo: "/logo.png",
-    logoBlanco : "/logo-blanco.webp",
+    logo: "/logo.svg",
+    logoBlanco : "/logo-blanco.svg",
     dashboardIntroduccion: "/introduccion.png",
     dashboardRegistros: "/registros.png",
     dashboardRutas: "/rutas.png",

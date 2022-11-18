@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import colors from "../constants/colors";
 
 const Container = styled.main`
-  height: 80vh;
+  min-height: 80vh;
   padding: 4%;
   background-color: ${colors.black[1]};
 `;

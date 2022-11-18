@@ -24,7 +24,7 @@ export const onHoverPrimary = css`
   }
 
   &:hover {
-    color: ${colors.universidad.primary};
+    color: ${colors.black[9]};
     &::before {
       height: 100%;
     }

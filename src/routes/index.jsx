@@ -6,25 +6,25 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import PropTypes from "prop-types";
 import ForgetPassword from "../pages/ForgetPassword";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 import Rutas from "../pages/Rutas";
+import Mapa from "../pages/Mapa";
 import Registro from "../pages/Registro";
 import RegistroEdit from "../components/RegistroEdit";
 import RegistroView from "../components/RegistroView";
-import { getLoggedIn } from "../app/apis/Users";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import useAuth from "../hooks/useAuth";
+import Spinner from "../components/Spinner";
 
 const Registros = React.lazy(() => import("../pages/Registros"));
 
 const PageRoutes = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
@@ -36,6 +36,7 @@ const PageRoutes = () => {
             }
           />
           <Route path="/rutas" element={<Rutas />} />
+          <Route path="/mapa" element={<Mapa />} />
           <Route path="/registros" element={<Registros />} />
           <Route path="/recuperar-contrasena" element={<ForgetPassword />} />
           <Route path="*" element={<NotFound />} />
@@ -59,6 +60,10 @@ const PrivateRoute = ({ children }) => {
   }
 
   return children;
+};
+
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default PageRoutes;

@@ -5,8 +5,8 @@ import { buttonInput, onHoverPrimary } from "../constants/styles";
 const Button = styled.button`
   ${buttonInput}
 
-  background-color: ${colors.universidad.primary};
-  color: ${colors.universidad.white};
+  background-color: ${colors.primary};
+  color: ${colors.white[0]};
 
   ${onHoverPrimary}
 
