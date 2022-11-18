@@ -1,23 +1,22 @@
 const columnas = [
   {
+    id: "id",
     name: "ID",
   },
   {
-    name: "Nombre",
-  },
-  {
-    name: "Tipo",
-  },
-  {
+    id: "direccion",
     name: "Direccion",
   },
   {
+    id: "reportadoPor",
     name: "Reportado por",
   },
   {
+    id: "fecha",
     name: "Fecha",
   },
   {
+    id: "activo",
     name: "Activo",
   }
 ];
