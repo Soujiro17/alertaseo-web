@@ -1,16 +1,14 @@
 import React from "react";
 import MapaLeaftlet from "../../components/MapaLeaflet";
 import AccountLayout from "../../layouts/AccountLayout";
-import Routing from "../../components/Routing";
+import camiones from "../../data/camiones";
 
-const Rutas = () => {
+const Camiones = () => {
   return (
     <AccountLayout>
-      <MapaLeaftlet height="400px" width="100%">
-        <Routing />
-      </MapaLeaftlet>
+      <MapaLeaftlet height="400px" width="100%" camiones={camiones} />
     </AccountLayout>
   );
 };
 
-export default Rutas;
+export default Camiones;

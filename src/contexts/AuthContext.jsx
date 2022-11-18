@@ -8,10 +8,16 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
 
+  const cerrarSesion = () => {
+    setAuth(null);
+    sessionStorage.removeItem("token");
+  };
+
   const values = useMemo(
     () => ({
       auth,
       setAuth,
+      cerrarSesion,
     }),
     [auth],
   );
